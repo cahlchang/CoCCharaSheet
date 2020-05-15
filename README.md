@@ -1,6 +1,7 @@
 # coc_charaseet
 
-> A Vue.js project
+- call of cthulhu CharaSeet
+- https://coccharasheet.web.app/
 
 ## Build Setup
 
