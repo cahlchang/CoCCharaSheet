@@ -1,7 +1,7 @@
 # coc_charaseet
 
 - call of cthulhu CharaSeet
-- https://coccharasheet.web.app/
+- <https://coccharasheet.web.app/>
 
 ## Build Setup
 
