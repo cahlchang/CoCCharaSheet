@@ -1,0 +1,10 @@
+version: "3"
+services:
+  deploy:
+    environment:
+      - FIREBASE_TOKEN=${COC_CHARA_SHEET_FIREBASE_TOKEN}
+    build:
+      context: ./
+      dockerfile: deploy.dockerfile
+    volumes:
+      - ./:/mount

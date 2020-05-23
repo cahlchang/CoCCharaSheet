@@ -1,7 +1,7 @@
 # coc_charaseet
 
 - call of cthulhu CharaSeet
-- https://coccharasheet.web.app/
+- <https://coccharasheet.web.app/>
 
 ## Build Setup
 
@@ -26,3 +26,14 @@ npm test
 ```
 
 For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+
+## Deploy Setup
+
+1. get Firebase token by `firebase login:ci`
+   - if you use another project, run `firebase use [project ID or alias]` before getting token
+2. define environment variable `COC_CHARA_SHEET_FIREBASE_TOKEN`
+
+## Deploy
+
+- execute `docker-compose -f ./deploy-compose.yml run deploy`
+  - 1st time, use `docker-compose -f ./deploy-compose.yml build` for building docker
