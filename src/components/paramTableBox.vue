@@ -19,18 +19,43 @@
                         <td :key=param+index v-if='param.type==0'>能力値</td>
                         <td :key=param+index v-if='param.type==1 || param.type==2 || param.type==3'>
                             <div class="cp_ipselect cp_sl04">
-                                <select v-model="selected">
-                                    <option v-for='(value,index_value) in param_value_list_type_1' :key='index_value' v-if='param.type==1'>
+                                <select v-model="lst_param[param.name]" v-if='param.type==1' value=0>
+                                    <option v-for='(value,index_value) in param_value_list_type_1' :key='index_value'>
                                         {{ value }}
                                     </option>
-                                    <option v-for='(value,index_value) in param_value_list_type_2' :key='index_value' v-if='param.type==2'>
+                                </select>
+                                <select v-model="lst_param[param.name]" v-if='param.type==2'>
+                                    <option v-for='(value,index_value) in param_value_list_type_2' :key='index_value'>
                                         {{ value }}
                                     </option>
-                                    <option v-for='(value,index_value) in param_value_list_type_3' :key='index_value' v-if='param.type==3'>
+                                </select>
+                                <select v-model="lst_param[param.name]" v-if='param.type==3'>
+                                    <option v-for='(value,index_value) in param_value_list_type_3' :key='index_value'>
                                         {{ value }}
                                     </option>
                                 </select>
                             </div>
+                        </td>
+                        <td :key=param+index v-if='param.type==4 && param.name=="HP"'>
+                            {{ Math.ceil((
+                            (isNaN(lst_param['CON'])?0:parseInt(lst_param['CON'])) +
+                            (isNaN(lst_param['SIZ'])?0:parseInt(lst_param['SIZ'])))
+                            /2)}}
+                        </td>
+                        <td :key=param+index v-if='param.type==4 && param.name=="MP"'>
+                            {{ isNaN(lst_param['POW'])?0:parseInt(lst_param['POW']) }}
+                        </td>
+                        <td :key=param+index v-if='param.type==4 && param.name=="SAN"'>
+                            {{ isNaN(lst_param['POW'])?0:parseInt(lst_param['POW'])*5 }}
+                        </td>
+                        <td :key=param+index v-if='param.type==4 && param.name=="アイデア"'>
+                            {{ isNaN(lst_param['INT'])?0:parseInt(lst_param['INT'])*5 }}
+                        </td>
+                        <td :key=param+index v-if='param.type==4 && param.name=="幸運"'>
+                            {{ isNaN(lst_param['POW'])?0:parseInt(lst_param['POW'])*5 }}
+                        </td>
+                        <td :key=param+index v-if='param.type==4 && param.name=="知識"'>
+                            {{ isNaN(lst_param['EDU'])?0:parseInt(lst_param['EDU'])*5 }}
                         </td>
                     </template>
                 </tr>
@@ -49,6 +74,7 @@
                         </td>
                         <td :key=param+index  v-if='param.type==1 || param.type==2 || param.type==3 || param.type==4'>
                             <input type="text" name="name" maxlength="2" class="input_box_param"/>
+
                         </td>
                     </template>
                 </tr>
@@ -57,12 +83,17 @@
                         <td :key=param+index  v-if='param.type==0'>現在値
                         </td>
                         <td :key=param+index  v-if='param.type==1 || param.type==2 || param.type==3'>
+                            <input type="text" name="name" maxlength="2" class="input_box_param"/>
+
                         </td>
                     </template>
                 </tr>
             </tbody>
         </table>
     </div>
+    <p>
+        {{ selected }}
+    </p>
 </div>
 </template>
 
@@ -71,8 +102,9 @@ export default {
   name: 'paramTablebox',
   data () {
     return {
+      lst_param: [],
       param_items: [
-        {'name': '　能力値　', 'type': 0},
+        {'name': '能力値', 'type': 0},
         {'name': 'STR', 'type': 1},
         {'name': 'CON', 'type': 1},
         {'name': 'POW', 'type': 1},
@@ -84,19 +116,21 @@ export default {
         {'name': 'HP', 'type': 4},
         {'name': 'MP', 'type': 4},
         {'name': 'SAN', 'type': 4},
-        {'name': 'IDE', 'type': 4},
+        {'name': 'アイデア', 'type': 4},
         {'name': '幸運', 'type': 4},
         {'name': '知識', 'type': 4}
       ],
       param_value_list_type_1: [
-        '', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18'
+        '', 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18
       ],
       param_value_list_type_2: [
-        '', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18'
+        '', 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18
       ],
       param_value_list_type_3: [
-        '', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21'
-      ]
+        '', 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21
+      ],
+      param_hp: function (event) {
+      }
     }
   }
 }
@@ -111,14 +145,11 @@ table{
 td,th{
   text-align: center;
   white-space: nowrap;
+  background: #575148;
 }
 th:first-of-type,
 td:first-of-type{
   background: #423845;
-}
-th,
-td{
-  background: #575148;
 }
 
 .cp_ipselect {
@@ -133,8 +164,6 @@ td{
  text-overflow: ellipsis;
  border: none;
  outline: none;
- text-align: center;
- font-size: 18px;
  background: transparent;
  background-image: none;
  box-shadow: none;
@@ -147,8 +176,8 @@ td{
 .cp_ipselect.cp_sl04 {
  position: relative;
  border-radius: 1px;
- border: 2px solid #000000;
- border-radius: 10px;
+ border: 1px solid #000000;
+ border-radius: 4px;
  background: #ffffff;
 }
 .cp_ipselect.cp_sl04::before {
