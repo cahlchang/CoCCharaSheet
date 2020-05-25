@@ -172,13 +172,13 @@ export default {
         {'name': '幸運', 'type': 4},
         {'name': '知識', 'type': 4}
       ],
-      param_value_list_type_1: [
+      param_values_3d6: [
         0, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18
       ],
-      param_value_list_type_2: [
+      param_values_2d6_plus_6: [
         0, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18
       ],
-      param_value_list_type_3: [
+      param_values_3d6_plus_3: [
         0, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21
       ]
     }
