@@ -20,17 +20,17 @@
                         <td :key=param+index v-if='param.type==1 || param.type==2 || param.type==3'>
                             <div class="cp_ipselect cp_sl04">
                                 <select v-model="lst_param[param.name]" v-if='param.type==1' value=0>
-                                    <option v-for='(value,index_value) in param_value_list_type_1' :key='index_value'>
+                                    <option v-for='(value,index_value) in param_values_3d6' :key='index_value'>
                                         {{ parseInt(value) }}
                                     </option>
                                 </select>
                                 <select v-model="lst_param[param.name]" v-if='param.type==2'>
-                                    <option v-for='(value,index_value) in param_value_list_type_2' :key='index_value'>
+                                    <option v-for='(value,index_value) in param_values_2d6_plus_6' :key='index_value'>
                                         {{ parseInt(value) }}
                                     </option>
                                 </select>
                                 <select v-model="lst_param[param.name]" v-if='param.type==3'>
-                                    <option v-for='(value,index_value) in param_value_list_type_3' :key='index_value'>
+                                    <option v-for='(value,index_value) in param_values_3d6_plus_3' :key='index_value'>
                                         {{ parseInt(value) }}
                                     </option>
                                 </select>
