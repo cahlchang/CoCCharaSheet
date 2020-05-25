@@ -175,7 +175,7 @@ export default {
       param_values_3d6: [
         0, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18
       ],
-      param_value_list_type_2: [
+      param_values_2d6_plus_6: [
         0, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18
       ],
       param_value_list_type_3: [
