@@ -3,26 +3,7 @@
     <div id="app">
         <h2>Cthulhu TRPG Charasheet ver 6</h2>
 
-        <div onclick="obj=document.getElementById('open_kihon').style; obj.display=(obj.display=='none')?'block':'none';">
-            <a style="cursor:pointer;"><h3>基本情報</h3></a>
-        </div>
-        <div id="open_kihon">
-            <div>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>test</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
+        <info-table-box></info-table-box>
         <param-table-box></param-table-box>
         <h3>戦闘技能</h3>
         <h3>探索技能</h3>
@@ -34,10 +15,11 @@
 
 <script>
 import ParamTableBox from '@/components/ParamTableBox.vue'
+import InfoTableBox from '@/components/InfoTableBox.vue'
 
 export default {
   name: 'App',
-  components: { ParamTableBox },
+  components: { ParamTableBox, InfoTableBox },
   data () {
     return {
       userName: null,
