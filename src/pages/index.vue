@@ -5,6 +5,7 @@
 
         <info-table-box></info-table-box>
         <param-table-box></param-table-box>
+        <skill-table-box></skill-table-box>
 
     </div>
 </div>
@@ -13,11 +14,13 @@
 <script>
 import InfoTableBox from '@/components/InfoTableBox.vue'
 import ParamTableBox from '@/components/ParamTableBox.vue'
+import SkillTableBox from '@/components/SkillTableBox.vue'
 
 export default {
   components: {
     InfoTableBox,
-    ParamTableBox
+    ParamTableBox,
+    SkillTableBox
   }
 }
 </script>
