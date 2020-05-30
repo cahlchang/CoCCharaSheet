@@ -1,6 +1,8 @@
+import { Configuration } from '@nuxt/types'
+
 const colors = require('vuetify/es5/util/colors').default
 
-export default {
+const config: Configuration = {
   mode: 'universal',
   srcDir: 'src/',
   /*
@@ -31,7 +33,6 @@ export default {
   ** Plugins to load before mounting the App
   */
   plugins: [
-    '~/plugins/firebase',
   ],
   /*
   ** Nuxt.js dev-modules
@@ -41,9 +42,18 @@ export default {
     '@nuxtjs/vuetify'
   ],
   /*
+  ** TypeScript Config
+  */
+  typescript: {
+    typeCheck: {
+      eslint: true
+    }
+  },
+  /*
   ** Nuxt.js modules
   */
   modules: [
+    '@nuxtjs/firebase'
   ],
   /*
   ** vuetify module configuration
@@ -67,22 +77,29 @@ export default {
     }
   },
   /*
+  ** Firebase module configuration
+  ** Doc: https://firebase.nuxtjs.org/guide/getting-started/#requirements
+  */
+  firebase: {
+    config: {
+      apiKey: process.env.VUE_APP_apiKey || '',
+      authDomain: process.env.VUE_APP_authDomain || '',
+      databaseURL: process.env.VUE_APP_databaseURL || '',
+      projectId: process.env.VUE_APP_projectId || '',
+      storageBucket: process.env.VUE_APP_storageBucket || '',
+      messagingSenderId: process.env.VUE_APP_messagingSenderId || '',
+      appId: process.env.VUE_APP_appId || '',
+      measurementId: process.env.VUE_APP_measurementId || ''
+    },
+    services: {
+      auth: false
+    }
+  },
+  /*
   ** Build configuration
   */
   build: {
-    /*
-    ** You can extend webpack config here
-    */
-    extend (config, ctx) {
-      // Run ESLint on save
-      if (ctx.isDev && ctx.isClient) {
-        config.module.rules.push({
-          enforce: "pre",
-          test: /\.(js|vue)$/,
-          loader: "eslint-loader",
-          exclude: /(node_modules)/
-        })
-      }
-    }
   }
 }
+
+export default config
