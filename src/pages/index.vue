@@ -1,14 +1,13 @@
 <template>
-<div id="box">
+  <div id="box">
     <div id="app">
-        <h2>Cthulhu TRPG Charasheet ver 6</h2>
+      <h2>Cthulhu TRPG Charasheet ver 6</h2>
 
-        <info-table-box></info-table-box>
-        <param-table-box></param-table-box>
-        <skill-table-box></skill-table-box>
-
+      <info-table-box />
+      <param-table-box />
+      <skill-table-box />
     </div>
-</div>
+  </div>
 </template>
 
 <script>

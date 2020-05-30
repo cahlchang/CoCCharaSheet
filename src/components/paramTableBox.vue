@@ -18,88 +18,92 @@
         <tbody>
           <tr>
             <template v-for="(param, index) in param_items">
-              <td :key=param+index v-if="param.type==0">能力値</td>
-              <td :key=param+index v-if="param.type==1 || param.type==2 || param.type==3">
+              <td v-if="param.type==0" :key="param+index">
+                能力値
+              </td>
+              <td v-if="param.type==1 || param.type==2 || param.type==3" :key="param+index">
                 <div class="cp_ipselect cp_sl04">
-                  <select v-model="lst_param[param.name]" v-if="param.type==1" value=0>
+                  <select v-if="param.type==1" v-model="lst_param[param.name]" value="0">
                     <option v-for="(value,index_value) in param_values_3d6" :key="index_value">
                       {{ parseInt(value) }}
                     </option>
                   </select>
-                  <select v-model="lst_param[param.name]" v-if="param.type==2">
+                  <select v-if="param.type==2" v-model="lst_param[param.name]">
                     <option v-for="(value,index_value) in param_values_2d6_plus_6" :key="index_value">
                       {{ parseInt(value) }}
                     </option>
                   </select>
-                  <select v-model="lst_param[param.name]" v-if="param.type==3">
+                  <select v-if="param.type==3" v-model="lst_param[param.name]">
                     <option v-for="(value,index_value) in param_values_3d6_plus_3" :key="index_value">
                       {{ parseInt(value) }}
                     </option>
                   </select>
                 </div>
               </td>
-              <td :key=param+indaex v-if='param.type==4 && param.name=="HP"'>
+              <td v-if="param.type==4 && param.name=='HP'" :key="param+index">
                 {{ param_hp() }}
               </td>
-              <td :key=param+index v-if='param.type==4 && param.name=="MP"'>
+              <td v-if="param.type==4 && param.name=='MP'" :key="param+index">
                 {{ param_mp() }}
               </td>
-              <td :key=param+index v-if='param.type==4 && param.name=="SAN"'>
+              <td v-if="param.type==4 && param.name=='SAN'" :key="param+index">
                 {{ param_san() }}
               </td>
-              <td :key=param+index v-if='param.type==4 && param.name=="アイデア"'>
+              <td v-if="param.type==4 && param.name=='アイデア'" :key="param+index">
                 {{ param_idea() }}
               </td>
-              <td :key=param+index v-if='param.type==4 && param.name=="幸運"'>
+              <td v-if="param.type==4 && param.name=='幸運'" :key="param+index">
                 {{ param_luck() }}
               </td>
-              <td :key=param+index v-if='param.type==4 && param.name=="知識"'>
+              <td v-if="param.type==4 && param.name=='知識'" :key="param+index">
                 {{ param_knowledge() }}
               </td>
             </template>
           </tr>
           <tr>
             <template v-for="(param, index) in param_items">
-              <td :key=param+index  v-if="param.type==0">増加分
+              <td v-if="param.type==0" :key="param+index">
+                増加分
               </td>
-              <td :key=param+index  v-if="param.type==1 || param.type==2 || param.type==3 || param.type==4">
-                <input v-model="lst_added[param.name]" type="text" name="name" maxlength="2" class="input_box_param"/>
+              <td v-if="param.type==1 || param.type==2 || param.type==3 || param.type==4" :key="param+index">
+                <input v-model="lst_added[param.name]" type="text" name="name" maxlength="2" class="input_box_param">
               </td>
             </template>
           </tr>
           <tr>
             <template v-for="(param, index) in param_items">
-              <td :key=param+index  v-if="param.type==0">一時的
+              <td v-if="param.type==0" :key="param+index">
+                一時的
               </td>
-              <td :key=param+index  v-if="param.type==1 || param.type==2 || param.type==3 || param.type==4">
+              <td v-if="param.type==1 || param.type==2 || param.type==3 || param.type==4" :key="param+index">
                 <input v-model="lst_spec[param.name]" type="text" name="name" maxlength="3" class="input_box_param">
               </td>
             </template>
           </tr>
           <tr>
             <template v-for="(param, index) in param_items">
-              <td :key=param+index v-if="param.type==0">
+              <td v-if="param.type==0" :key="param+index">
                 現在値
               </td>
-              <td :key=param+index v-if="param.type==1 || param.type==2 || param.type==3">
-                {{ current_params(param.name)}}
+              <td v-if="param.type==1 || param.type==2 || param.type==3" :key="param+index">
+                {{ current_params(param.name) }}
               </td>
-              <td :key=param+index v-if='param.name=="HP"'>
+              <td v-if="param.name==='HP'" :key="param+index">
                 {{ current_status(param.name, param_hp()) }}
               </td>
-              <td :key=param+index v-if='param.name=="MP"'>
+              <td v-if="param.name=='MP'" :key="param+index">
                 {{ current_status(param.name, param_mp()) }}
               </td>
-              <td :key=param+index v-if='param.name=="SAN"'>
+              <td v-if="param.name=='SAN'" :key="param+index">
                 {{ current_status(param.name, param_san()) }}
               </td>
-              <td :key=param+index v-if='param.name=="アイデア"'>
+              <td v-if="param.name=='アイデア'" :key="param+index">
                 {{ current_status(param.name, param_idea()) }}
               </td>
-              <td :key=param+index v-if='param.name=="幸運"'>
+              <td v-if="param.name=='幸運'" :key="param+index">
                 {{ current_status(param.name, param_luck()) }}
               </td>
-              <td :key=param+index v-if='param.name=="知識"'>
+              <td v-if="param.name=='知識'" :key="param+index">
                 {{ current_status(param.name, param_knowledge()) }}
               </td>
             </template>
@@ -110,82 +114,81 @@
   </div>
 </template>
 <script>
-  export default {
-    name: 'paramTablebox',
-    methods: {
-      param_hp: function (event) {
-        var con = isNaN(this.lst_param['CON']) ? 0 : parseInt(this.lst_param['CON'])
-        var siz = isNaN(this.lst_param['SIZ']) ? 0 : parseInt(this.lst_param['SIZ'])
-        return Math.ceil((con + siz) / 2)
-      },
-      param_mp: function (event) {
-        var pow = isNaN(this.lst_param['POW']) ? 0 : parseInt(this.lst_param['POW'])
-        return pow
-      },
-      param_san: function (event) {
-        var pow = isNaN(this.lst_param['POW']) ? 0 : parseInt(this.lst_param['POW'])
-        return pow * 5
-      },
-      param_idea: function (event) {
-        var int = isNaN(this.lst_param['INT']) ? 0 : parseInt(this.lst_param['INT'])
-        return int * 5
-      },
-      param_luck: function (event) {
-        var pow = isNaN(this.lst_param['POW']) ? 0 : parseInt(this.lst_param['POW'])
-        return pow * 5
-      },
-      param_knowledge: function (event) {
-        var edu = isNaN(this.lst_param['EDU']) ? 0 : parseInt(this.lst_param['EDU'])
-        return edu * 5
-      },
-      current_params: function (event) {
-        var initParam = isNaN(this.lst_param[event]) ? 0 : parseInt(this.lst_param[event])
-        var addedParam = isNaN(this.lst_added[event]) ? 0 : parseInt(this.lst_added[event])
-        var specParam = isNaN(this.lst_spec[event]) ? 0 : parseInt(this.lst_spec[event])
-        return initParam + addedParam + specParam
-      },
-      current_status: function (event, initStatus) {
-        var initStatusCalc = isNaN(initStatus) ? 0 : parseInt(initStatus)
-        var addedStatus = isNaN(this.lst_added[event]) ? 0 : parseInt(this.lst_added[event])
-        var specStatus = isNaN(this.lst_spec[event]) ? 0 : parseInt(this.lst_spec[event])
-        return initStatusCalc + addedStatus + specStatus
-      }
+export default {
+  name: 'ParamTablebox',
+  data () {
+    return {
+      lst_param: [],
+      lst_added: [],
+      lst_spec: [],
+      param_items: [
+        { name: '能力値', type: 0 },
+        { name: 'STR', type: 1 },
+        { name: 'CON', type: 1 },
+        { name: 'POW', type: 1 },
+        { name: 'DEX', type: 1 },
+        { name: 'APP', type: 1 },
+        { name: 'SIZ', type: 1 },
+        { name: 'INT', type: 2 },
+        { name: 'EDU', type: 3 },
+        { name: 'HP', type: 4 },
+        { name: 'MP', type: 4 },
+        { name: 'SAN', type: 4 },
+        { name: 'アイデア', type: 4 },
+        { name: '幸運', type: 4 },
+        { name: '知識', type: 4 }
+      ],
+      param_values_3d6: [
+        0, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18
+      ],
+      param_values_2d6_plus_6: [
+        0, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18
+      ],
+      param_values_3d6_plus_3: [
+        0, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21
+      ]
+    }
+  },
+  methods: {
+    param_hp () {
+      const con = isNaN(this.lst_param.CON) ? 0 : parseInt(this.lst_param.CON)
+      const siz = isNaN(this.lst_param.SIZ) ? 0 : parseInt(this.lst_param.SIZ)
+      return Math.ceil((con + siz) / 2)
     },
-    data () {
-      return {
-        lst_param: [],
-        lst_added: [],
-        lst_spec: [],
-        param_items: [
-          {'name': '能力値', 'type': 0},
-          {'name': 'STR', 'type': 1},
-          {'name': 'CON', 'type': 1},
-          {'name': 'POW', 'type': 1},
-          {'name': 'DEX', 'type': 1},
-          {'name': 'APP', 'type': 1},
-          {'name': 'SIZ', 'type': 1},
-          {'name': 'INT', 'type': 2},
-          {'name': 'EDU', 'type': 3},
-          {'name': 'HP', 'type': 4},
-          {'name': 'MP', 'type': 4},
-          {'name': 'SAN', 'type': 4},
-          {'name': 'アイデア', 'type': 4},
-          {'name': '幸運', 'type': 4},
-          {'name': '知識', 'type': 4}
-        ],
-        param_values_3d6: [
-          0, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18
-        ],
-        param_values_2d6_plus_6: [
-          0, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18
-        ],
-        param_values_3d6_plus_3: [
-          0, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21
-        ]
-      }
+    param_mp () {
+      const pow = isNaN(this.lst_param.POW) ? 0 : parseInt(this.lst_param.POW)
+      return pow
+    },
+    param_san () {
+      const pow = isNaN(this.lst_param.POW) ? 0 : parseInt(this.lst_param.POW)
+      return pow * 5
+    },
+    param_idea () {
+      const int = isNaN(this.lst_param.INT) ? 0 : parseInt(this.lst_param.INT)
+      return int * 5
+    },
+    param_luck () {
+      const pow = isNaN(this.lst_param.POW) ? 0 : parseInt(this.lst_param.POW)
+      return pow * 5
+    },
+    param_knowledge () {
+      const edu = isNaN(this.lst_param.EDU) ? 0 : parseInt(this.lst_param.EDU)
+      return edu * 5
+    },
+    current_params (event) {
+      const initParam = isNaN(this.lst_param[event]) ? 0 : parseInt(this.lst_param[event])
+      const addedParam = isNaN(this.lst_added[event]) ? 0 : parseInt(this.lst_added[event])
+      const specParam = isNaN(this.lst_spec[event]) ? 0 : parseInt(this.lst_spec[event])
+      return initParam + addedParam + specParam
+    },
+    current_status (event, initStatus) {
+      const initStatusCalc = isNaN(initStatus) ? 0 : parseInt(initStatus)
+      const addedStatus = isNaN(this.lst_added[event]) ? 0 : parseInt(this.lst_added[event])
+      const specStatus = isNaN(this.lst_spec[event]) ? 0 : parseInt(this.lst_spec[event])
+      return initStatusCalc + addedStatus + specStatus
     }
   }
-
+}
 </script>
 
 <style>

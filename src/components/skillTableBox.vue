@@ -34,14 +34,6 @@
             </tbody>
           </table>
         </div>
-        <br />
-
-        <table>
-          <thead>
-          </thead>
-          <tbody>
-          </tbody>
-        </table>
       </div>
     </div>
   </div>
@@ -49,23 +41,22 @@
 
 <script>
 export default {
-  name: 'skillTablebox',
-  methods: {
-  },
+  name: 'SkillTablebox',
   data () {
     return {
-      battle_skills: [{name: "回避"},
-                      "キック",
-                      "組み付き",
-                      "こぶし（パンチ）",
-                      "頭突き",
-                      "投擲",
-                      "マーシャルアーツ",
-                      "拳銃",
-                      "サブマシンガン",
-                      "ショットガン",
-                      "マシンガン",
-                      "ライフル"],
+      battle_skills: [
+        { name: '回避' },
+        'キック',
+        '組み付き',
+        'こぶし（パンチ）',
+        '頭突き',
+        '投擲',
+        'マーシャルアーツ',
+        '拳銃',
+        'サブマシンガン',
+        'ショットガン',
+        'マシンガン',
+        'ライフル'],
       explore_skills: [],
       action_skills: [],
       nego_skills: [],

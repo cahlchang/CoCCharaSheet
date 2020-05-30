@@ -4,80 +4,78 @@
       <a style="cursor:pointer;"><h3>基本情報</h3></a>
     </div>
     <div id="open_info">
-        <div id="info_box">
-            <table>
-                <thead>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td class="infoBox" colspan="3">
-                      名前
-                      <input type="text" size="100" name="name">
-                    </td>
-                  </tr>
-                  <tr>
-                    <td class="infoBox" colspan="3">
-                      タグ
-                      <input type="text" size="100" name="name">
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      職業
-                      <input class="infoBox" type="text" name="name">
-                    </td>
-                    <td>
-                      年齢
-                      <input class="infoBox" type="text" name="name">
-                    </td>
-                    <td>
-                      性別
-                      <input class="infoBox" type="text" name="name">
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      身長
-                      <input class="infoBox" type="text" name="name">
-                    </td>
-                    <td>
-                      体重
-                      <input class="infoBox" type="text" name="name">
-                    </td>
-                    <td>
-                      出身
-                      <input class="infoBox" type="text" name="name">
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      髪の色
-                      <input class="infoBox" type="text" name="name">
-                    </td>
-                    <td>
-                      瞳の色
-                      <input class="infoBox" type="text" name="name">
-                    </td>
-                    <td>
-                      肌の色
-                      <input class="infoBox" type="text" name="name">
-                    </td>
-                  </tr>
-                </tbody>
-            </table>
-        </div>
+      <div id="info_box">
+        <table>
+          <tbody>
+            <tr>
+              <td class="infoBox" colspan="3">
+                名前
+                <input type="text" size="100" name="name">
+              </td>
+            </tr>
+            <tr>
+              <td class="infoBox" colspan="3">
+                タグ
+                <input type="text" size="100" name="name">
+              </td>
+            </tr>
+            <tr>
+              <td>
+                職業
+                <input class="infoBox" type="text" name="name">
+              </td>
+              <td>
+                年齢
+                <input class="infoBox" type="text" name="name">
+              </td>
+              <td>
+                性別
+                <input class="infoBox" type="text" name="name">
+              </td>
+            </tr>
+            <tr>
+              <td>
+                身長
+                <input class="infoBox" type="text" name="name">
+              </td>
+              <td>
+                体重
+                <input class="infoBox" type="text" name="name">
+              </td>
+              <td>
+                出身
+                <input class="infoBox" type="text" name="name">
+              </td>
+            </tr>
+            <tr>
+              <td>
+                髪の色
+                <input class="infoBox" type="text" name="name">
+              </td>
+              <td>
+                瞳の色
+                <input class="infoBox" type="text" name="name">
+              </td>
+              <td>
+                肌の色
+                <input class="infoBox" type="text" name="name">
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
-</div>
+  </div>
 </template>
 
 <script>
 export default {
-  name: 'infoTablebox',
-  methods: {
-  },
+  name: 'InfoTablebox',
   data () {
     return {
     }
+  },
+  methods: {
   }
 }
 
