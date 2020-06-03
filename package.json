@@ -4,6 +4,9 @@
   "description": "A character sheet storage tool for TRPG - Call of Cthulhu -.",
   "author": "cahlchang",
   "private": true,
+  "engines": {
+    "node": "^12.18.0"
+   },
   "scripts": {
     "dev": "nuxt-ts",
     "generate": "nuxt-ts generate",
@@ -13,7 +16,8 @@
     "@nuxt/typescript-runtime": "^0.4.8",
     "@nuxtjs/firebase": "^5.2.0",
     "firebase": "^7.14.6",
-    "nuxt": "^2.12.2"
+    "nuxt": "^2.12.2",
+    "vue-meta": "^2.3.4"
   },
   "devDependencies": {
     "@nuxt/types": "^0.7.7",

@@ -39,10 +39,12 @@
   </div>
 </template>
 
-<script>
-export default {
+<script lang="ts">
+import Vue from 'vue'
+
+export default Vue.extend({
   name: 'SkillTablebox',
-  data () {
+  data() {
     return {
       battle_skills: [
         { name: '回避' },
@@ -60,10 +62,10 @@ export default {
       explore_skills: [],
       action_skills: [],
       nego_skills: [],
-      knowledge_skills: []
+      knowledge_skills: [],
     }
-  }
-}
+  },
+})
 
 </script>
 
