@@ -26,7 +26,6 @@
               :value="baseAbility(key)"
               :items="[0, 2, 3]"
               solo
-              @change="onChangeBase"
             />
           </td>
           <!-- <td v-for=>
